@@ -8,8 +8,6 @@ void generate_best_case(int A[], int n);
 void generate_worst_case(int A[], int n);
 void generate_average_case(int A[], int n);
 
-void print_array(int A[], int n);
-
 int main(void)
 {
     int n, choice;
@@ -47,18 +45,12 @@ int main(void)
             return -1;
     }
 
-    printf("\nThe unsorted list:\n");
-    // print_array(A, n);
-
     time1 = (double)clock();  // Get initial time
     time1 = time1 / CLOCKS_PER_SEC;  // In seconds
 
     algorithm(A, n);
 
     timedif = (((double)clock()) / CLOCKS_PER_SEC) - time1;
-
-    printf("\nThe sorted list:\n");
-    // print_array(A, n);
 
     printf("The elapsed time is %f seconds\n", timedif);
 
@@ -95,15 +87,6 @@ void generate_average_case(int A[], int n)
     {
         A[i] = rand() % 100;  // Generates random numbers between 0 and 99
     }
-}
-
-void print_array(int A[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d\t", A[i]);
-    }
-    printf("\n");
 }
 
 void algorithm(int A[], int n)
